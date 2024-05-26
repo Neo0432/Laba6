@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- добавим стили mocha для отображения результатов -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css"
+    />
+    <!-- добавляем сам фреймворк mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+    <script>
+      // включаем режим тестирования в стиле BDD
+      mocha.setup("bdd");
+    </script>
+    <!-- добавим chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+    <script>
+      // chai предоставляет большое количество функций. Объявим assert глобально
+      let assert = chai.assert;
+    </script>
+  </head>
+  <body>
+    <article>
+      <section class="tr_section">
+        <table id="table" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Имя</th>
+              <th>Дата рождения</th>
+              <th>Год поступления</th>
+              <th>Курс</th>
+              <th>Группа</th>
+              <th>Средний балл</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </section>
+      <hr />
+      <section class="sortButton">
+        <button type="button" id="sortButton">Отсортировать</button>
+      </section>
+    </article>
+    <aside>
+      <form id="addStudent" autocomplete="off" name="myForm">
+        <input type="text" name="name" placeholder="Имя студента" required />
+        <input
+          type="dateOfBirthday"
+          name="bth"
+          placeholder="Дата рождения"
+          required
+        />
+        <input
+          type="dateOfAdmussion"
+          name="addmission"
+          placeholder="Год поступления"
+          required
+        />
+        <input
+          type="course"
+          name="course"
+          placeholder="Курс обучения"
+          required
+        />
+        <input type="studentGroup" name="group" placeholder="Группа" required />
+        <input type="text" name="avr" placeholder="Средний балл" required />
+        <button type="submit" id="submitButton">Добавить</button>
+      </form>
+    </aside>
+    <section id="mocha"></section>
+    <script src="/script.js"></script>
+    <script src="/test/test.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
